@@ -1,3 +1,6 @@
+//3 states; fullfilled, rejected, or pending
+//ES6
+
 function DoFirst(){
     return new Promise(function(resolve, reject){
         setTimeout(function(){
@@ -9,6 +12,10 @@ function DoFirst(){
 function DoSecond(){
     console.log(2);
 }
+
+//DoSecond is still passed as a callback but its not inside the first function. 
+//This solves the nesting problems with callbacks
+//catch allows us to handle errors for all functions that are chained.
 
 DoFirst().then(DoSecond).catch(function(error){
     console.log(error);
